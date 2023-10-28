@@ -96,6 +96,9 @@ def display_school_distribution(df, df_unique_uai):
 
 # Now i want to do some internal plots by using st.line and st.bar_chart:
 def display_internal_plots(df, df_unique_uai):
+    grouped_data = df.groupby(['rentree_scolaire', 'secteur']).size().unstack()
+    st.subheader('Evolution of the number of schools by sector over time')
+    st.line_chart(grouped_data)
 
     st.subheader('Distribution of schools by academy')
     academy_counts = df_unique_uai['academie'].value_counts()
