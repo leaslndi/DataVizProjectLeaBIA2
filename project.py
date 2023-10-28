@@ -42,9 +42,9 @@ def display_variables():
         - **Secteur** (`secteur`): Public establishment or private establishment
         - **IPS** (`ips`): Social position index of the students of the establishment
     """)
-
+    
+@st.cache_data
 def load_and_process_data():
-    @st.cache_data
     def load_dataset():
         return pd.read_csv('fr-en-ips_ecoles_v2.csv', delimiter=';')
     df = load_dataset()
